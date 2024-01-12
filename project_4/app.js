@@ -25,7 +25,7 @@ app.post('/favorites', async (req, res) => {
         if (faveType !== 'movie' && faveType !== 'character') {
             throw new Error('"type" should be "movie" or "character"!');
         }
-        const existingFav = await Favorite.findOne({ name: faveName });
+        const existingFav = await Favorite.findOne({ name: favName });
         if (existingFav) {
             throw new Error('Favorite exists already!');
         }
@@ -73,7 +73,7 @@ mongoose_main().catch((err) => {
 
 async function mongoose_main() {
     await mongoose.connect(
-        'mongodb://172.17.0.2:27017/swFavorites',  
+        'mongodb://mongodb:27017/swFavorites',  
     );
     app.listen(3000)
 }
