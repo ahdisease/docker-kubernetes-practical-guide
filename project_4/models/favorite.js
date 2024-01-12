@@ -8,4 +8,4 @@ const favoriteSchema = new Schema({
 
 const Favorite = model('Favorite', favoriteSchema)
 
-model.exports = Favorite;
+module.exports = Favorite;

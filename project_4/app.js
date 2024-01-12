@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios').default;
 const mongoose = require('mongoose');
 
-const Favorite = require('./models/favorite');
+const Favorite = require('./models/favorite.js');
 
 const app = express();
 
@@ -67,14 +67,13 @@ app.get('/people', async (req, res) => {
     }
 });
 
-mongoose.connect(
-    'mongodb://localhost:27017/swFavorites',
-    { useNewUrlParser: true },
-    (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            app.listen(3000);
-        }
-    }
-);
+mongoose_main().catch((err) => {
+    console.log(err)
+})
+
+async function mongoose_main() {
+    await mongoose.connect(
+        'mongodb://172.17.0.2:27017/swFavorites',  
+    );
+    app.listen(3000)
+}
