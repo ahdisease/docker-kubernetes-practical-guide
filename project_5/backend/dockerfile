@@ -1,0 +1,16 @@
+FROM node
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . /app
+
+CMD ["node", "app.js"]
+
+EXPOSE 80
+
+# docker build -t node-goals-api ./backend
+# docker run node-goals-api

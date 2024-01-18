@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 
-const Goal - require('./models/goal')
+const Goal = require('./models/goal')
 
 const app = expresss()
 
@@ -37,7 +37,7 @@ app.get('/goals', async (req, res) => {
             }))
         })
         console.log('FETCHED GOALS')
-    } CATCH (err) {
+    } catch (err) {
         console.error('ERROR FETCHING GOALS')
         console.error(err.message)
         res.status(500).json({ message: 'Failed to load goals' })
@@ -84,7 +84,7 @@ app.delete('goals/:id', async (req,res) => {
 })
 
 mongoose.connect(
-    'mongodb://loaclhost:27017/course-goals',
+    'mongodb://goals-db:27017/course-goals',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
