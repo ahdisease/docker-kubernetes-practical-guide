@@ -10,7 +10,7 @@ COPY . /app
 
 CMD ["node", "app.js"]
 
-EXPOSE 80
+EXPOSE 8080
 
 # docker build -t node-goals-api ./backend
 # docker run node-goals-api

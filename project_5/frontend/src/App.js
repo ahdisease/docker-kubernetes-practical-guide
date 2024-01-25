@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import {useState, useEffect} from "react";
 
 import GoalInput from "./components/goals/GoalInput";
 import CourseGoals from "./components/goals/CourseGoals";
@@ -9,12 +10,14 @@ const [loadedGoals, setLoadedGoals] = useState([])
 const [isLoading, setIsLoading] = useState(false)
 const [error, setError] = useState(null)
 
+const API_HOST = "http://localhost:8080"
+
 useEffect(function () {
   async function fetchData() {
     setIsLoading(true)
 
     try{
-      const response = await fetch('http://localhost/goals')
+      const response = await fetch(`${API_HOST}/goals`)
 
       const resData = await response.json()
 
@@ -39,7 +42,7 @@ useEffect(function () {
     setIsLoading(true)
 
     try {
-      const response = await fetch('http://localhost/goals', {
+      const response = await fetch(`${API_HOST}/goals`, {
         method:'POST',
         body: JSON.stringify({
           text: goalText,
@@ -78,7 +81,7 @@ useEffect(function () {
     setIsLoading(true)
     
     try {
-      const response = await fetch('http://localhost/goals' + goalId, {
+      const response = await fetch(`${API_HOST}/goals` + goalId, {
         method: 'DELETE',
       })
 
