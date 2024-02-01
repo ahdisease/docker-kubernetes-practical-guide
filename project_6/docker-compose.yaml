@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  goals-db:
+    container_name: 'goals-db'
+    image: 'mongo'
+    volumes:
+      - data:/data/db
+    env_file:
+      - ./env/mongo.env
+  goals-backend:
+    build: ./backend
+    env_file:
+      - ./env/mongo.env
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    ports:
+      - '8080:8080'
+    depends_on:
+      - goals-db
+  goals-react:
+    build: ./frontend
+    volumes:
+      - ./frontend/src:/app/src
+    ports:
+      - '3000:3000'
+
+
+volumes:
+  data:
+  logs:
