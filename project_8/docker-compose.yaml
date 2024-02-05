@@ -9,7 +9,13 @@ services:
       - '8000:80'
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-  # php:
+  php:
+    build:
+      context: ./dockerfiles
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html:delegated
+      # delegated - data written by the container isn't instantly reflected in the host machine delivering in "batches". used to optimize performace
   # mysql:
   # ## Utility Containers ##
   # composer:
