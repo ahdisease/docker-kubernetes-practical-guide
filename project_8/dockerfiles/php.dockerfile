@@ -1,5 +1,5 @@
 #note the fpm is necessary for the nginx we're using
-FROM php:7.4-fpm-alpine
+FROM php:8.1-fpm-alpine
 
 WORKDIR /var/www/html
 
