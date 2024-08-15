@@ -1,0 +1,24 @@
+# Content
+- Deployment Overview and General Process
+- Deployment Scenarios, Examples & Problems
+
+# Deployment Overview and General Process
+## Containers are Always Great
+In Development or in Production
+- Isolated, standalone environment
+- Reproducable environment (easy to share and use)
+- What works on your machine (in a container) will also work after deployment
+
+## Development to Production: Things to Watch Out For
+- **Bind mounts** _shouldn't_ be used in production
+- Containerized apps might need a build step
+- **Multi-container projects** might need to be split across multiple hosts/remote machines
+- Trade-offs between control and rsponsibility might be worth it
+
+## Deployment Process & Providers
+
+Basic first example will be a standalone NodeJS app
+
+Development Machine -> Container Registry -> Remote Host -> End User Machine
+
+We will use AWS for this course.
