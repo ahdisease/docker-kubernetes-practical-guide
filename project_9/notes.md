@@ -22,3 +22,16 @@ Basic first example will be a standalone NodeJS app
 Development Machine -> Container Registry -> Remote Host -> End User Machine
 
 We will use AWS for this course.
+
+## Bind Mounts, Volumes, & Copy
+
+### Development
+- Containers should encapsulate the runtime environment but not necessarily the code
+- Use **Bind Mounts** to provide your local host project files to the running container
+- Allows for instant updates without restarting the container
+
+### Production
+- A container should really work standalone (should NOT have source code on your remote machine)
+  - The Image / Container is the "_single source of truth_"
+- Use **Copy** to copy a code snapshot into the image
+- Ensures that every image runs without any extra, surrounding configuration or code
