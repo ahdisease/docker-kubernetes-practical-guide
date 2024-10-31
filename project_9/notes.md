@@ -6,14 +6,14 @@
 ## Containers are Always Great
 In Development or in Production
 - Isolated, standalone environment
-- Reproducable environment (easy to share and use)
+- Reproducible environment (easy to share and use)
 - What works on your machine (in a container) will also work after deployment
 
 ## Development to Production: Things to Watch Out For
 - **Bind mounts** _shouldn't_ be used in production
 - Containerized apps might need a build step
 - **Multi-container projects** might need to be split across multiple hosts/remote machines
-- Trade-offs between control and rsponsibility might be worth it
+- Trade-offs between control and responsibility might be worth it
 
 ## Deployment Process & Providers
 
